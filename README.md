@@ -4,3 +4,4 @@
 * 10:00: research React Native
     * [Official Documentation](https://reactnative.dev/docs/getting-started)
 * 11:45: finish getting through the basics, begin work on environment setup
+* 1:45: finish environment setup, begin workflow
