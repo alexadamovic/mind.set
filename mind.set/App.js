@@ -1,10 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, SafeAreaView } from 'react-native';
+import { Image, StyleSheet, Text, SafeAreaView } from 'react-native';
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <Text>Test hello</Text>
+      <Image source= {require("./assets/logo.png")}/>
       <StatusBar style="auto" />
     </SafeAreaView>
   );
