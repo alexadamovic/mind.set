@@ -24,7 +24,7 @@ If you finish developing the minimum viable product (MVP) with time to spare, wh
 
 What additional tools, frameworks, libraries, APIs, or other resources will these additional features require?
 
-I should be able to accomplish everything with the stack listed above, but will have to do research on publishing if I get to step 4 of my stretch goals and further research on tools that I'd need to accomplish step 5.
+I should be able to accomplish everything with the stack listed above, but will have to do research on publishing if I get to step 4 of my stretch goals and further research on tools that I'd need to accomplish step 5. I've intentionally kept my MVP and stretch goals simple enough so that I will have enough time to explore publishing the app (all of my friends in the industry have said this is extremely important and can definitely set you apart from other job candidates).
 
 Is there anything else you'd like your instructor to know?
 
