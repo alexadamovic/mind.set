@@ -7,3 +7,4 @@
 * 1:45: finish environment setup, begin workflow
     * [Watch React Native Tutorial](https://www.youtube.com/watch?v=0-S5a0eXPoc)
 * 2:30: get Android Studio set up for Android emulation
+* 4:00: continue working through tutorial and add some trial elements
