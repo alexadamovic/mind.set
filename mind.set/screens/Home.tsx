@@ -1,12 +1,16 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { useAuthentication } from '../utils/hooks/useAuthentication';
+import { Button } from 'react-native-elements';
 
 export default function HomeScreen() {
+  const { user } = useAuthentication();
+
   return (
     <View style={styles.container}>
-      <Text>screen!</Text>
-      <StatusBar style="auto" />
+      <Text>Welcome {user?.email}!</Text>
+
+      <Button title="Sign Out" style={styles.button} />
     </View>
   );
 }
@@ -18,4 +22,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  button: {
+    marginTop: 10
+  }
 });
