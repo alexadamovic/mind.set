@@ -3,7 +3,7 @@ import 'dotenv/config';
 export default {
   "expo": {
     "name": "mind.set",
-    "slug": "mind.set",
+    "slug": "mind_set",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
