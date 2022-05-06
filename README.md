@@ -19,3 +19,5 @@ _mind.set is a platform where users are encouraged to get into a positive frame 
 
 #### Friday, 05/05/2022
 * 8:00: caffeinate, work out a plan for the day
+* 8:30: begin work on adding firebase with authentication
+    * [Integrating Firebase authentication into an Expo mobile app](https://blog.logrocket.com/integrating-firebase-authentication-expo-mobile-app/)
