@@ -44,12 +44,13 @@ const SignUpScreen: React.FC<StackScreenProps<any>> = ({ navigation }) => {
         <Input
           placeholder='Email'
           containerStyle={styles.control}
-          value={value.email}
+          // value={value.email}
           onChangeText={(text) => setValue({ ...value, email: text })}
           leftIcon={<Icon
             name='envelope'
-            size={16} />} 
-          autoCompleteType={undefined} />
+            size={16} />}
+        // autoCompleteType={'email'} 
+        />
         <Input
           placeholder='Password'
           containerStyle={styles.control}
@@ -58,8 +59,9 @@ const SignUpScreen: React.FC<StackScreenProps<any>> = ({ navigation }) => {
           secureTextEntry={true}
           leftIcon={<Icon
             name='key'
-            size={16} />} 
-          autoCompleteType={undefined} />
+            size={16} />}
+          autoCompleteType={undefined}
+        />
         <Button title="Sign up" buttonStyle={styles.control} onPress={signUp} />
       </View>
     </View>
