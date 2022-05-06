@@ -16,3 +16,6 @@ _mind.set is a platform where users are encouraged to get into a positive frame 
     * [Watch React Native Tutorial](https://www.youtube.com/watch?v=0-S5a0eXPoc)
 * 2:30: get Android Studio set up for Android emulation
 * 4:00: continue working through tutorial and add some trial elements
+
+#### Friday, 05/05/2022
+* 8:00: caffeinate, work out a plan for the day
