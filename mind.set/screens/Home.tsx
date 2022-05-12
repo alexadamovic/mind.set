@@ -12,7 +12,7 @@ const HomeScreen: React.FC<StackScreenProps<any>> = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Button title="Add A Feel Good" style={styles.button} onPress={() => navigation.navigate('Add Feel Good')} />
+      <Button title="add a mind.set" style={styles.button} onPress={() => navigation.navigate('choose mind.set')} />
       <Button title="Get A Mood Booster" style={styles.button} onPress={() => navigation.navigate('Mood Booster')} />
       <Text>Welcome {user?.email}!</Text>
       <Button title="Sign Out" style={styles.button} onPress={() => signOut(auth)} />

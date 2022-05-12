@@ -4,7 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import HomeScreen from '../screens/Home';
 import MoodBoosterScreen from '../screens/MoodBooster';
-import AddFeelGoodScreen from '../screens/AddFeelGood';
+import ChooseMindSet from '../screens/ChooseMindSet';
 
 const Stack = createStackNavigator();
 
@@ -14,7 +14,7 @@ export default function UserStack() {
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Mood Booster" component={MoodBoosterScreen} />
-        <Stack.Screen name="Add Feel Good" component={AddFeelGoodScreen} />
+        <Stack.Screen name="choose mind.set" component={ChooseMindSet} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -39,31 +39,31 @@ const SignUpScreen: React.FC<StackScreenProps<any>> = ({ navigation }) => {
       <Text>Signup screen!</Text>
 
       {!!value.error && <View style={styles.error}><Text>{value.error}</Text></View>}
-      
-        <Input
-          placeholder='Email'
-          inputContainerStyle={styles.control}
-          value={value.email}
-          onChangeText={(text) => setValue({ ...value, email: text })}
-          leftIcon={<Icon
-            name='envelope'
-            size={16} />}
-          autoCompleteType={undefined}
 
-        />
+      <Input
+        placeholder='Email'
+        inputContainerStyle={styles.control}
+        value={value.email}
+        onChangeText={(text) => setValue({ ...value, email: text })}
+        leftIcon={<Icon
+          name='envelope'
+          size={16} />}
+        autoCompleteType={undefined}
 
-        <Input
-          placeholder='Password'
-          containerStyle={styles.control}
-          value={value.password}
-          onChangeText={(text) => setValue({ ...value, password: text })}
-          secureTextEntry={true}
-          leftIcon={<Icon
-            name='key'
-            size={16} />}
-          autoCompleteType={undefined}
+      />
 
-        />
+      <Input
+        placeholder='Password'
+        containerStyle={styles.control}
+        value={value.password}
+        onChangeText={(text) => setValue({ ...value, password: text })}
+        secureTextEntry={true}
+        leftIcon={<Icon
+          name='key'
+          size={16} />}
+        autoCompleteType={undefined}
+
+      />
       <View style={styles.controls}>
         <Button title="Sign up" buttonStyle={styles.control} onPress={signUp} />
       </View>

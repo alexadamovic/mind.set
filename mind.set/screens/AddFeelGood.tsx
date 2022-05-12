@@ -16,7 +16,7 @@ const AddFeelGoodScreen = () => {
     content: '',
   });
 
-  function Create() {
+  function GiveType() {
     if (check1 === true) {
       setValue({ ...value, type: 'Memory' })
     } else if (check2 === true) {
@@ -28,7 +28,6 @@ const AddFeelGoodScreen = () => {
     } else {
       setValue({ ...value, type: 'Other' })
     }
-    SendToFirebase();
   }
 
   async function SendToFirebase() {
@@ -122,7 +121,7 @@ const AddFeelGoodScreen = () => {
           size={16} />}
         autoCompleteType={undefined}
       />
-      <Button title="Add New Feel Good" onPress={Create}></Button>
+      <Button title="Add New Feel Good" onPress={SendToFirebase}></Button>
     </View>
   );
 };
