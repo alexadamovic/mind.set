@@ -3,46 +3,31 @@ import { StyleSheet, Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Input, Button } from 'react-native-elements';
 import { useAuthentication } from '../utils/hooks/useAuthentication';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { db } from '../config/firebase';
 import { collection, addDoc } from 'firebase/firestore';
-import { CheckBox } from '@rneui/themed';
+import { StackScreenProps } from '@react-navigation/stack';
 
-const AddFeelGoodScreen = () => {
+const Other: React.FC<StackScreenProps<any>> = ({ navigation }) => {
+
   const { user } = useAuthentication();
 
   const [value, setValue] = React.useState({
-    type: '',
     content: '',
   });
 
   async function SendToFirebase() {
     await addDoc(collection(db, "Feel Goods"), {
-      type: value.type,
+      type: 'Other',
       content: value.content,
       uid: user?.uid
     });
+    navigation.navigate('Home')
   }
-
-  // const Create = () => {
-  // const feelGood = doc(db, "MyCollection", "Something New")
-  // const docData = {
-  //   "type": "memory",
-  //   "content": value.content
-  // }
-  // addDoc(feelGood, docData)
-  //   .then(() => {
-  //     alert("Feel Good Added!")
-  //   })
-  //   .catch((error) => {
-  //     alert(error.message)
-  //   })
-
 
   return (
     <View style={styles.container}>
       <Input
-        placeholder='What makes you feel good??'
+        placeholder='Give yourself a feel good moment!'
         multiline
         numberOfLines={5}
         containerStyle={styles.control}
@@ -53,10 +38,10 @@ const AddFeelGoodScreen = () => {
           size={16} />}
         autoCompleteType={undefined}
       />
-      <Button title="Add New Feel Good" onPress={SendToFirebase}></Button>
+      <Button title="Add New Other" onPress={SendToFirebase}></Button>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -73,4 +58,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AddFeelGoodScreen;
+export default Other;
