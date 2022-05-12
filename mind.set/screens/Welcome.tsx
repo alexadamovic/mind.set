@@ -1,12 +1,13 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 import { Button } from 'react-native-elements';
 
 const WelcomeScreen: React.FC<StackScreenProps<any>> = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Text>Welcome screen!</Text>
+
+      <Image source={require("../assets/logo.png")} />
 
       <View style={styles.buttons}>
         <Button title="Sign in" buttonStyle={styles.button} onPress={() => navigation.navigate('Sign In')} />
@@ -20,7 +21,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 20,
-    backgroundColor: '#fff',
+    backgroundColor: '#e1f5ec',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -30,7 +31,7 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    marginTop: 10
+    marginTop: 10,
   }
 });
 

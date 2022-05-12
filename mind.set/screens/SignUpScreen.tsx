@@ -39,8 +39,7 @@ const SignUpScreen: React.FC<StackScreenProps<any>> = ({ navigation }) => {
       <Text>Signup screen!</Text>
 
       {!!value.error && <View style={styles.error}><Text>{value.error}</Text></View>}
-
-      <View style={styles.controls}>
+      
         <Input
           placeholder='Email'
           inputContainerStyle={styles.control}
@@ -49,7 +48,6 @@ const SignUpScreen: React.FC<StackScreenProps<any>> = ({ navigation }) => {
           leftIcon={<Icon
             name='envelope'
             size={16} />}
-
           autoCompleteType={undefined}
 
         />
@@ -63,11 +61,10 @@ const SignUpScreen: React.FC<StackScreenProps<any>> = ({ navigation }) => {
           leftIcon={<Icon
             name='key'
             size={16} />}
-
           autoCompleteType={undefined}
 
         />
-
+      <View style={styles.controls}>
         <Button title="Sign up" buttonStyle={styles.control} onPress={signUp} />
       </View>
     </View>
@@ -78,7 +75,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 20,
-    backgroundColor: '#fff',
+    backgroundColor: '#e1f5ec',
     alignItems: 'center',
     justifyContent: 'center',
   },

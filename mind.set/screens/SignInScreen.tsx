@@ -38,8 +38,7 @@ const SignInScreen = () => {
 
       {!!value.error && <View style={styles.error}><Text>{value.error}</Text></View>}
 
-      <View style={styles.controls}>
-        <Input
+      <Input
           placeholder='Email'
           containerStyle={styles.control}
           value={value.email}
@@ -47,7 +46,6 @@ const SignInScreen = () => {
           leftIcon={<Icon
             name='envelope'
             size={16} />}
-
           autoCompleteType={undefined}
 
         />
@@ -60,11 +58,11 @@ const SignInScreen = () => {
           secureTextEntry={true}
           leftIcon={<Icon
             name='key'
-
-            size={16} />} autoCompleteType={undefined}
+            size={16} />} 
+          autoCompleteType={undefined}
 
         />
-
+      <View style={styles.controls}>
         <Button title="Sign in" buttonStyle={styles.control} onPress={signIn} />
       </View>
     </View>
@@ -75,7 +73,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 20,
-    backgroundColor: '#fff',
+    backgroundColor: '#e1f5ec',
     alignItems: 'center',
     justifyContent: 'center',
   },
