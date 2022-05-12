@@ -16,9 +16,24 @@ const AddFeelGoodScreen = () => {
     content: '',
   });
 
-  async function Create() {
+  function Create() {
+    if (check1 === true) {
+      setValue({ ...value, type: 'Memory' })
+    } else if (check2 === true) {
+      setValue({ ...value, type: 'Compliment' })
+    } else if (check3 === true) {
+      setValue({ ...value, type: 'Achievement' })
+    } else if (check4 === true) {
+      setValue({ ...value, type: 'Encouragement' })
+    } else {
+      setValue({ ...value, type: 'Other' })
+    }
+    SendToFirebase();
+  }
+
+  async function SendToFirebase() {
     await addDoc(collection(db, "Feel Goods"), {
-      type: 'WHATEVER',
+      type: value.type,
       content: value.content,
       uid: user?.uid
     });
