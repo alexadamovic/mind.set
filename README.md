@@ -26,3 +26,5 @@ _mind.set is a platform where users are encouraged to get into a positive frame 
 #### Friday, 05/13/2022
 * 8:00: do some research on React Native Elements
     * [React Native Elements Documentation](https://reactnativeelements.com/docs)
+* 9:00: work on coding to get desired responses from Firestore database
+* 1:00: do research into incorporating OpenAI
