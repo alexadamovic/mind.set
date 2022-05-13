@@ -6,8 +6,22 @@ import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { db } from '../config/firebase';
 import { collection, query, where, getDocs, DocumentData } from "firebase/firestore";
 import { useAuthentication } from '../utils/hooks/useAuthentication';
-import { Configuration, OpenAIApi } from "openai";
 
+
+// const { user } = useAuthentication();
+// const feelGoods = collection(db, "Feel Goods")
+// const q = query(feelGoods, where("uid", "==", user?.uid), where("type", "==", "Memory"));
+// let ourArray: DocumentData[] = [];
+
+// async function WTH() {
+//   const querySnapshot = await getDocs(q);
+//   querySnapshot.forEach((doc) => {
+//     ourArray.push(doc.data());
+//   });
+// };
+
+// WTH();
+// console.log(ourArray);
 
 const MoodBoosterScreen = () => {
 
@@ -23,24 +37,7 @@ const MoodBoosterScreen = () => {
     querySnapshot.forEach((doc) => {
       ourArray.push(doc.data().content);
     });
-
-    const configuration = new Configuration({
-      organization: "org-q4l5gB23k9kfkGF2bWlaghVo",
-      apiKey: process.env.OPENAI_API_KEY,
-    });
-    const openai = new OpenAIApi(configuration);
-    const response = await openai.createCompletion("text-davinci-002", {
-      prompt: `I'm not feeling that great. Try to cheer me up using this memory: ${ourArray[Math.floor(Math.random() * ourArray.length)]}`,
-      temperature: 0.9,
-      max_tokens: 150,
-      top_p: 1,
-      frequency_penalty: 0.0,
-      presence_penalty: 0.6,
-      stop: [" Human:", " AI:"],
-    });
-
-
-    console.log(response);
+    console.log(ourArray[Math.floor(Math.random() * ourArray.length)]);
     setText(ourArray[Math.floor(Math.random() * ourArray.length)]);
   }
 

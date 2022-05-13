@@ -28,3 +28,4 @@ _mind.set is a platform where users are encouraged to get into a positive frame 
     * [React Native Elements Documentation](https://reactnativeelements.com/docs)
 * 9:00: work on coding to get desired responses from Firestore database
 * 1:00: do research into incorporating OpenAI
+    * [Open AI Documentation](https://beta.openai.com/docs/introduction)
