@@ -25,29 +25,29 @@ import { useAuthentication } from '../utils/hooks/useAuthentication';
 const MoodBoosterScreen = () => {
 
   const { user } = useAuthentication();
-  const feelGoods = collection(db, "Feel Goods")
-  const q = query(feelGoods, where("type", "==", "Memory"));
-  let ourArray: DocumentData[] = [];
-  let ourObject: String = ourArray[0].toString();
+  const feelGoods = collection(db, "Feel Goods");
 
-  async function WTH() {
+  async function fetch() {
+    const q = query(feelGoods, where("type", "==", "Memory"), where("uid", "==", user?.uid));
+    let ourArray: String[] = [];
+
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
-      ourArray.push(doc.data());
+      ourArray.push(doc.data().content);
     });
-  };
-  WTH();
-
-  console.log(ourObject);
-
-  function getRandomFeelGood() {
-    // return ourArray[Math.floor(Math.random() * (ourArray.length - 1))]
-    return ourArray[0].content;
+    console.log(ourArray[Math.floor(Math.random() * ourArray.length)]);
   }
+
+
+  // function getRandomFeelGood() {
+  //   // return ourArray[Math.floor(Math.random() * (ourArray.length - 1))]
+  //   return ourArray[0].content;
+  // }
 
   return (
     <View style={styles.container}>
       <Text>You're doing AWESOME!</Text>
+      <Button title="Fetch" onPress={fetch}></Button>
     </View>
   );
 };
