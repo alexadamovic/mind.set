@@ -6,6 +6,7 @@ import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { db } from '../config/firebase';
 import { collection, query, where, getDocs, DocumentData } from "firebase/firestore";
 import { useAuthentication } from '../utils/hooks/useAuthentication';
+import { openai } from '../api/openai';
 
 
 const MoodBoosterScreen = () => {
@@ -27,7 +28,16 @@ const MoodBoosterScreen = () => {
   }
 
   async function callOpenAi() {
-    const response = await fetch("../api/openai", {
+
+    async function woot(res) {
+      const completion = await openai.createCompletion("text-davinci-002", {
+        prompt: text
+        temperature: 0.6,
+      });
+      res.status(200).json({ result: completion.data.choices[0].text });
+    };
+
+    const response = await fetch(woot, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -35,33 +45,35 @@ const MoodBoosterScreen = () => {
       body: JSON.stringify({ thing: text })
     });
     const data = await response.json();
+    setText(data.result);
+  }
 
 
 
-    // function getRandomFeelGood() {
-    //   // return ourArray[Math.floor(Math.random() * (ourArray.length - 1))]
-    //   return ourArray[0].content;
-    // }
+  // function getRandomFeelGood() {
+  //   // return ourArray[Math.floor(Math.random() * (ourArray.length - 1))]
+  //   return ourArray[0].content;
+  // }
 
-    return (
-      <View style={styles.container}>
-        <Text>{text}</Text>
-        <Button title="Fetch" onPress={fetch}></Button>
-        <Button title="OPENAI" onPress={callOpenAi}></Button>
-      </View>
-    );
-  };
+  return (
+    <View style={styles.container}>
+      <Text>{text}</Text>
+      <Button title="Fetch" onPress={fetch}></Button>
+      <Button title="OPENAI" onPress={callOpenAi}></Button>
+    </View>
+  );
+};
 
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    button: {
-      marginTop: 10
-    }
-  });
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  button: {
+    marginTop: 10
+  }
+});
 
-  export default MoodBoosterScreen;
+export default MoodBoosterScreen;

@@ -6,12 +6,4 @@ const configuration = new Configuration({
   apiKey: Constants.manifest?.extra?.openAiApiKey,
 });
 
-const openai = new OpenAIApi(configuration);
-
-export default async function (res) {
-  const completion = await openai.createCompletion("text-davinci-002", {
-    prompt: "This is just filler I can fix this later",
-    temperature: 0.6,
-  });
-  res.status(200).json({ result: completion.data.choices[0].text });
-}
+export const openai = new OpenAIApi(configuration);
