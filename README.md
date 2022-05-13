@@ -22,3 +22,7 @@ _mind.set is a platform where users are encouraged to get into a positive frame 
 * 8:30: begin work on adding firebase with authentication
     * [Integrating Firebase authentication into an Expo mobile app](https://blog.logrocket.com/integrating-firebase-authentication-expo-mobile-app/)
 * 5:00: ended up working on Firebase Authentication all day
+
+#### Friday, 05/13/2022
+* 8:00: do some research on React Native Elements
+    * [React Native Elements Documentation](https://reactnativeelements.com/docs)
