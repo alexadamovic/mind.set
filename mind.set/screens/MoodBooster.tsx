@@ -26,16 +26,18 @@ const MoodBoosterScreen = () => {
 
   const { user } = useAuthentication();
   const feelGoods = collection(db, "Feel Goods");
+  const [text, setText] = React.useState("Let's take a trip down memory lane")
 
   async function fetch() {
     const q = query(feelGoods, where("type", "==", "Memory"), where("uid", "==", user?.uid));
-    let ourArray: String[] = [];
+    let ourArray: string[] = [];
 
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       ourArray.push(doc.data().content);
     });
     console.log(ourArray[Math.floor(Math.random() * ourArray.length)]);
+    setText(ourArray[Math.floor(Math.random() * ourArray.length)]);
   }
 
 
@@ -46,7 +48,7 @@ const MoodBoosterScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Text>You're doing AWESOME!</Text>
+      <Text>{text}</Text>
       <Button title="Fetch" onPress={fetch}></Button>
     </View>
   );
