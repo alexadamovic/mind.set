@@ -4,22 +4,21 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { Input, Button } from 'react-native-elements';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { db } from '../config/firebase';
-import { collection, query, where, getDocs } from "firebase/firestore"
+import { collection, query, where, getDocs, DocumentData } from "firebase/firestore"
 
 const feelGoods = collection(db, "Feel Goods")
 const q = query(feelGoods, where("type", "==", "Memory"));
+let ourArray: DocumentData[] = [];
 
-console.log(feelGoods);
+async function WTH() {
+  const querySnapshot = await getDocs(q);
+  querySnapshot.forEach((doc) => {
+    ourArray.push(doc.data());
+  });
+};
 
-const querySnapshot = await getDocs(q);
-querySnapshot.forEach((doc) => {
-  // doc.data() is never undefined for query doc snapshots
-  console.log(doc.id, " => ", doc.data());
-});
-
-// querySnapshot.forEach((doc) => {
-//   console.log(doc.id, " => ", doc.data();)
-// });
+WTH();
+console.log(ourArray);
 
 const MoodBoosterScreen = () => {
   return (
