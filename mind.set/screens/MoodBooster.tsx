@@ -6,7 +6,7 @@ import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { db } from '../config/firebase';
 import { collection, query, where, getDocs, DocumentData } from "firebase/firestore";
 import { useAuthentication } from '../utils/hooks/useAuthentication';
-import { openai } from '../api/openai';
+import Constants from 'expo-constants';
 
 
 const MoodBoosterScreen = () => {
@@ -23,37 +23,23 @@ const MoodBoosterScreen = () => {
     querySnapshot.forEach((doc) => {
       ourArray.push(doc.data().content);
     });
-    // callOpenAi(ourArray[Math.floor(Math.random() * ourArray.length)]);
     setText(ourArray[Math.floor(Math.random() * ourArray.length)]);
   }
 
   async function callOpenAi() {
-
-    async function woot(res) {
-      const completion = await openai.createCompletion("text-davinci-002", {
-        prompt: text
-        temperature: 0.6,
-      });
-      res.status(200).json({ result: completion.data.choices[0].text });
-    };
-
-    const response = await fetch(woot, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ thing: text })
+    const { Configuration, OpenAIApi } = require("openai");
+    const configuration = new Configuration({
+      apiKey: Constants.manifest?.extra?.openAiApiKey,
     });
-    const data = await response.json();
-    setText(data.result);
-  }
+    const openai = new OpenAIApi(configuration);
+    const response = await openai.createCompletion("text-davinci-002", {
+      prompt: "Say this is a test",
+      temperature: 0,
+      max_tokens: 6,
+    });
+    console.log(response);
+  };
 
-
-
-  // function getRandomFeelGood() {
-  //   // return ourArray[Math.floor(Math.random() * (ourArray.length - 1))]
-  //   return ourArray[0].content;
-  // }
 
   return (
     <View style={styles.container}>
