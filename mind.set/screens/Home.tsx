@@ -16,9 +16,9 @@ const HomeScreen: React.FC<StackScreenProps<any>> = ({ navigation }) => {
 
       <Image source={require("../assets/logo.png")} />
 
-      <Button title="Add A Mind.Set" buttonStyle={styles.button} onPress={() => navigation.navigate('choose mind.set')} />
-      <Button title="Get A Mood Booster" buttonStyle={styles.button} onPress={() => navigation.navigate('Mood Booster')} />
-      <Button title="Sign Out" buttonStyle={styles.button} onPress={() => signOut(auth)} />
+      <Button title="Add A Mind.Set" containerStyle={styles.buttonContainer} titleStyle={styles.buttonText} buttonStyle={styles.button} onPress={() => navigation.navigate('choose mind.set')} />
+      <Button title="Get A Mood Booster" containerStyle={styles.buttonContainer} titleStyle={styles.buttonText} buttonStyle={styles.button} onPress={() => navigation.navigate('Mood Booster')} />
+      <Button title="Sign Out" containerStyle={styles.buttonContainer} titleStyle={styles.buttonText} buttonStyle={styles.button} onPress={() => signOut(auth)} />
     </View>
   );
 }
@@ -31,9 +31,22 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   button: {
-    marginTop: 10,
-    backgroundColor: '#9a86cf',
-  }
+    backgroundColor: '#ffffb4',
+    borderRadius: 30,
+    borderRightWidth: 2,
+    borderBottomWidth: 5,
+    borderLeftWidth: 2,
+    borderTopWidth: 2,
+    borderColor: '#696969',
+    padding: 10
+  },
+  buttonText: {
+    color: '#696969',
+  },
+  buttonContainer: {
+    marginTop: 15,
+    borderRadius: 30,
+  },
 });
 
 export default HomeScreen;
