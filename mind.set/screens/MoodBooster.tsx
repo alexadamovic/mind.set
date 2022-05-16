@@ -16,14 +16,14 @@ const MoodBoosterScreen = () => {
   const [text, setText] = React.useState("Let's take a trip down memory lane")
 
   async function fetch() {
-    const q = query(feelGoods, where("type", "==", "Memory"), where("uid", "==", user?.uid));
-    let ourArray: string[] = [];
+    const q = query(feelGoods, where("uid", "==", user?.uid));
+    let ourArray: DocumentData[] = [];
 
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
-      ourArray.push(doc.data().content);
+      ourArray.push(doc.data());
     });
-    setText(ourArray[Math.floor(Math.random() * ourArray.length)]);
+    setText(ourArray[Math.floor(Math.random() * ourArray.length)].content);
   }
 
   async function callOpenAi() {
