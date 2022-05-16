@@ -27,10 +27,17 @@ const SignUpScreen: React.FC<StackScreenProps<any>> = ({ navigation }) => {
       await createUserWithEmailAndPassword(auth, value.email, value.password);
       navigation.navigate('Sign In');
     } catch (error) {
-      setValue({
-        ...value,
-        error: error.message,
-      })
+      if (error instanceof Error) {
+        setValue({
+          ...value,
+          error: error.message,
+        })
+      } else {
+        setValue({
+          ...value,
+          error: "Unexpected Error",
+        })
+      }
     }
   }
 

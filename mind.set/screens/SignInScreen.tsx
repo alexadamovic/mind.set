@@ -25,10 +25,17 @@ const SignInScreen = () => {
     try {
       await signInWithEmailAndPassword(auth, value.email, value.password);
     } catch (error) {
-      setValue({
-        ...value,
-        error: error.message,
-      })
+      if (error instanceof Error) {
+        setValue({
+          ...value,
+          error: error.message,
+        })
+      } else {
+        setValue({
+          ...value,
+          error: "Unexpected Error",
+        })
+      }
     }
   }
 
@@ -39,29 +46,29 @@ const SignInScreen = () => {
       {!!value.error && <View style={styles.error}><Text>{value.error}</Text></View>}
 
       <Input
-          placeholder='Email'
-          containerStyle={styles.control}
-          value={value.email}
-          onChangeText={(text) => setValue({ ...value, email: text })}
-          leftIcon={<Icon
-            name='envelope'
-            size={16} />}
-          autoCompleteType={undefined}
+        placeholder='Email'
+        containerStyle={styles.control}
+        value={value.email}
+        onChangeText={(text) => setValue({ ...value, email: text })}
+        leftIcon={<Icon
+          name='envelope'
+          size={16} />}
+        autoCompleteType={undefined}
 
-        />
+      />
 
-        <Input
-          placeholder='Password'
-          containerStyle={styles.control}
-          value={value.password}
-          onChangeText={(text) => setValue({ ...value, password: text })}
-          secureTextEntry={true}
-          leftIcon={<Icon
-            name='key'
-            size={16} />} 
-          autoCompleteType={undefined}
+      <Input
+        placeholder='Password'
+        containerStyle={styles.control}
+        value={value.password}
+        onChangeText={(text) => setValue({ ...value, password: text })}
+        secureTextEntry={true}
+        leftIcon={<Icon
+          name='key'
+          size={16} />}
+        autoCompleteType={undefined}
 
-        />
+      />
       <View style={styles.controls}>
         <Button title="Sign in" buttonStyle={styles.control} onPress={signIn} />
       </View>
