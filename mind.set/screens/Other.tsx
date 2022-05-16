@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { Input, Button } from 'react-native-elements';
 import { useAuthentication } from '../utils/hooks/useAuthentication';
 import { db } from '../config/firebase';
-import { collection, addDoc } from 'firebase/firestore';
+import { collection, addDoc, Timestamp } from 'firebase/firestore';
 import { StackScreenProps } from '@react-navigation/stack';
 
 const Other: React.FC<StackScreenProps<any>> = ({ navigation }) => {
@@ -19,7 +19,8 @@ const Other: React.FC<StackScreenProps<any>> = ({ navigation }) => {
     await addDoc(collection(db, "Feel Goods"), {
       type: 'Other',
       content: value.content,
-      uid: user?.uid
+      uid: user?.uid,
+      timestamp: Timestamp.fromDate(new Date)
     });
     navigation.navigate('Home')
   }
