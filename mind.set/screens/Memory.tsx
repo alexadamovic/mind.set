@@ -74,8 +74,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Righteous_400Regular',
     textAlign: 'center',
     backgroundColor: '#ffffb4',
-    borderTopRightRadius: 30,
-    borderTopLeftRadius: 30,
     borderRightWidth: 2,
     borderBottomWidth: 5,
     borderLeftWidth: 2,

@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { Button } from 'react-native-elements';
 
 import HomeScreen from '../screens/Home';
 import MoodBoosterScreen from '../screens/MoodBooster';
@@ -17,7 +18,14 @@ export default function UserStack() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} options={{
+          headerRight: () => (
+            <Button
+              onPress={() => alert('This is a button!')}
+              title="Info"
+            />
+          ),
+        }} />
         <Stack.Screen name="Mood Booster" component={MoodBoosterScreen} />
         <Stack.Screen name="choose mind.set" component={ChooseMindSet} />
         <Stack.Screen name="Memory" component={Memory} />
