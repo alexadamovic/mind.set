@@ -39,7 +39,7 @@ const Memory: React.FC<StackScreenProps<any>> = ({ navigation }) => {
           size={16} />}
         autoCompleteType={undefined}
       />
-      <Button title="Add New Memory" onPress={SendToFirebase}></Button>
+      <Button title="Add New Memory" containerStyle={styles.buttonContainer} titleStyle={styles.buttonText} buttonStyle={styles.button} onPress={SendToFirebase}></Button>
     </View>
   );
 }
@@ -47,15 +47,29 @@ const Memory: React.FC<StackScreenProps<any>> = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#e1f5ec',
     alignItems: 'center',
     justifyContent: 'center',
   },
-  button: {
-    marginTop: 10
-  },
   control: {
     marginTop: 10
+  },
+  button: {
+    backgroundColor: '#ffffb4',
+    borderRadius: 30,
+    borderRightWidth: 2,
+    borderBottomWidth: 5,
+    borderLeftWidth: 2,
+    borderTopWidth: 2,
+    borderColor: '#696969',
+    padding: 10
+  },
+  buttonText: {
+    color: '#696969',
+  },
+  buttonContainer: {
+    marginTop: 15,
+    borderRadius: 30,
   },
 });
 

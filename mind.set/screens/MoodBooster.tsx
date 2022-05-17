@@ -66,25 +66,26 @@ const MoodBoosterScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#e1f5ec',
     alignItems: 'center',
     justifyContent: 'center',
   },
   button: {
     backgroundColor: '#ffffb4',
-    borderRadius: 20,
+    borderRadius: 30,
     borderRightWidth: 2,
     borderBottomWidth: 5,
     borderLeftWidth: 2,
     borderTopWidth: 2,
-    borderColor: 'black',
+    borderColor: '#696969',
+    padding: 10
   },
   buttonText: {
-    color: '#422800',
+    color: '#696969',
   },
   buttonContainer: {
-    marginTop: 10,
-    borderRadius: 20
+    marginTop: 15,
+    borderRadius: 30,
   },
 });
 
