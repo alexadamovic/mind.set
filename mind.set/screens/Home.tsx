@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image } from 'react-native';
 import { useAuthentication } from '../utils/hooks/useAuthentication';
-import { Button, Header } from 'react-native-elements';
+import { Button } from 'react-native-elements';
 import { browserPopupRedirectResolver, getAuth, signOut } from 'firebase/auth';
 import { StackScreenProps } from '@react-navigation/stack';
 

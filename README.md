@@ -30,6 +30,6 @@ _mind.set is a platform where users are encouraged to get into a positive frame 
 * 1:00: do research into incorporating OpenAI
     * [Open AI Documentation](https://beta.openai.com/docs/introduction)
 
-#### Tuesday, , 05/17/2022
+#### Tuesday, 05/17/2022
 * 8:30: read tutorial on useEffect hook
     * [useEffect](https://blog.logrocket.com/guide-to-react-useeffect-hook/)
