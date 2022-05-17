@@ -27,16 +27,13 @@ const Memory: React.FC<StackScreenProps<any>> = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Input
+      <Input style={styles.textInput}
         placeholder='What would you like to remember?'
         multiline
-        numberOfLines={5}
+        numberOfLines={3}
         containerStyle={styles.control}
         value={value.content}
         onChangeText={(text) => setValue({ ...value, content: text })}
-        leftIcon={<Icon
-          name='smile-o'
-          size={16} />}
         autoCompleteType={undefined}
       />
       <Button title="Add New Memory" containerStyle={styles.buttonContainer} titleStyle={styles.buttonText} buttonStyle={styles.button} onPress={SendToFirebase}></Button>
@@ -66,11 +63,26 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: '#696969',
+    fontFamily: 'Righteous_400Regular'
   },
   buttonContainer: {
     marginTop: 15,
     borderRadius: 30,
   },
+  textInput: {
+    color: '#696969',
+    fontFamily: 'Righteous_400Regular',
+    textAlign: 'center',
+    backgroundColor: '#ffffb4',
+    borderTopRightRadius: 30,
+    borderTopLeftRadius: 30,
+    borderRightWidth: 2,
+    borderBottomWidth: 5,
+    borderLeftWidth: 2,
+    borderTopWidth: 2,
+    borderColor: '#696969',
+    padding: 10
+  }
 });
 
 export default Memory;

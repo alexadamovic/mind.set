@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: '#696969',
+    fontFamily: 'Righteous_400Regular'
   },
   buttonContainer: {
     marginTop: 15,

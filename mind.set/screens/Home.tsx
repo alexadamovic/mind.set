@@ -12,8 +12,6 @@ const HomeScreen: React.FC<StackScreenProps<any>> = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text>Welcome {user?.email}!</Text>
-
       <Image source={require("../assets/logo.png")} />
 
       <Button title="Add A Mind.Set" containerStyle={styles.buttonContainer} titleStyle={styles.buttonText} buttonStyle={styles.button} onPress={() => navigation.navigate('choose mind.set')} />
