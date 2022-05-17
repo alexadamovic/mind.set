@@ -12,7 +12,6 @@ const ChooseMindSet: React.FC<StackScreenProps<any>> = ({ navigation }) => {
       <Button title="Compliment" containerStyle={styles.buttonContainer} titleStyle={styles.buttonText} buttonStyle={styles.button} onPress={() => navigation.navigate('Compliment')} />
       <Button title="Achievement" containerStyle={styles.buttonContainer} titleStyle={styles.buttonText} buttonStyle={styles.button} onPress={() => navigation.navigate('Achievement')} />
       <Button title="Encouragement" containerStyle={styles.buttonContainer} titleStyle={styles.buttonText} buttonStyle={styles.button} onPress={() => navigation.navigate('Encouragement')} />
-      <Button title="Other" containerStyle={styles.buttonContainer} titleStyle={styles.buttonText} buttonStyle={styles.button} onPress={() => navigation.navigate('Other')} />
     </View>
   );
 }

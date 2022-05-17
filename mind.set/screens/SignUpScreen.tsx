@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Input, Button } from 'react-native-elements';
 import { StackScreenProps } from '@react-navigation/stack';
@@ -43,11 +43,11 @@ const SignUpScreen: React.FC<StackScreenProps<any>> = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text>Signup screen!</Text>
+      <Image source={require("../assets/signup.png")} />
 
-      {!!value.error && <View style={styles.error}><Text>{value.error}</Text></View>}
+      {!!value.error && <View style={styles.error}><Text style={styles.text}>{value.error}</Text></View>}
 
-      <Input
+      <Input style={styles.text}
         placeholder='Email'
         inputContainerStyle={styles.control}
         value={value.email}
@@ -59,7 +59,7 @@ const SignUpScreen: React.FC<StackScreenProps<any>> = ({ navigation }) => {
 
       />
 
-      <Input
+      <Input style={styles.text}
         placeholder='Password'
         containerStyle={styles.control}
         value={value.password}
@@ -72,7 +72,7 @@ const SignUpScreen: React.FC<StackScreenProps<any>> = ({ navigation }) => {
 
       />
       <View style={styles.controls}>
-        <Button title="Sign up" buttonStyle={styles.control} onPress={signUp} />
+        <Button title="Sign up" containerStyle={styles.buttonContainer} titleStyle={styles.buttonText} buttonStyle={styles.button} onPress={signUp} />
       </View>
     </View>
   );
@@ -95,11 +95,40 @@ const styles = StyleSheet.create({
     marginTop: 10
   },
 
+  button: {
+    backgroundColor: '#ffffb4',
+    borderRadius: 30,
+    borderRightWidth: 2,
+    borderBottomWidth: 5,
+    borderLeftWidth: 2,
+    borderTopWidth: 2,
+    borderColor: '#696969',
+    padding: 10
+  },
+  buttonText: {
+    color: '#696969',
+    fontFamily: 'Righteous_400Regular'
+  },
+  buttonContainer: {
+    marginTop: 15,
+    borderRadius: 30,
+  },
+
+  text: {
+    fontFamily: 'Righteous_400Regular'
+  },
+
   error: {
     marginTop: 10,
     padding: 10,
     color: '#fff',
-    backgroundColor: '#D54826FF',
+    borderRightWidth: 2,
+    borderBottomWidth: 5,
+    borderLeftWidth: 2,
+    borderTopWidth: 2,
+    borderColor: '#696969',
+    backgroundColor: '#f5a190',
+    borderRadius: 30
   }
 });
 

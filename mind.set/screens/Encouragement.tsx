@@ -27,19 +27,16 @@ const Encouragement: React.FC<StackScreenProps<any>> = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Input
+      <Input style={styles.textInput}
         placeholder='Give yourself a pep talk!'
         multiline
-        numberOfLines={5}
+        numberOfLines={3}
         containerStyle={styles.control}
         value={value.content}
         onChangeText={(text) => setValue({ ...value, content: text })}
-        leftIcon={<Icon
-          name='smile-o'
-          size={16} />}
         autoCompleteType={undefined}
       />
-      <Button title="Add New Encouragement" onPress={SendToFirebase}></Button>
+      <Button title="Add New Encouragement" containerStyle={styles.buttonContainer} titleStyle={styles.buttonText} buttonStyle={styles.button} onPress={SendToFirebase}></Button>
     </View>
   );
 }
@@ -47,16 +44,43 @@ const Encouragement: React.FC<StackScreenProps<any>> = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#e1f5ec',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  button: {
-    marginTop: 10
   },
   control: {
     marginTop: 10
   },
+  button: {
+    backgroundColor: '#ffffb4',
+    borderRadius: 30,
+    borderRightWidth: 2,
+    borderBottomWidth: 5,
+    borderLeftWidth: 2,
+    borderTopWidth: 2,
+    borderColor: '#696969',
+    padding: 10
+  },
+  buttonText: {
+    color: '#696969',
+    fontFamily: 'Righteous_400Regular'
+  },
+  buttonContainer: {
+    marginTop: 15,
+    borderRadius: 30,
+  },
+  textInput: {
+    color: '#696969',
+    fontFamily: 'Righteous_400Regular',
+    textAlign: 'center',
+    backgroundColor: '#ffffb4',
+    borderRightWidth: 2,
+    borderBottomWidth: 5,
+    borderLeftWidth: 2,
+    borderTopWidth: 2,
+    borderColor: '#696969',
+    padding: 10
+  }
 });
 
 export default Encouragement;

@@ -28,7 +28,7 @@ const Memory: React.FC<StackScreenProps<any>> = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Input style={styles.textInput}
-        placeholder='What would you like to remember?'
+        placeholder="What would you like to remember??"
         multiline
         numberOfLines={3}
         containerStyle={styles.control}

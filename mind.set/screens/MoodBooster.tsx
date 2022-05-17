@@ -12,29 +12,19 @@ const MoodBoosterScreen = () => {
 
   const { user } = useAuthentication();
   const feelGoods = collection(db, "Feel Goods");
-  const [text, setText] = React.useState("What will you pull up today???")
-  const [title, setTitle] = React.useState("Type of Feel Good")
-  let ourArray: DocumentData[] = [];
+  const [text, setText] = React.useState("What will you pull up today???");
+  const [title, setTitle] = React.useState("Type of Feel Good");
 
-  const getOurArray = async () => {
+
+  async function fetch() {
     const q = query(feelGoods, where("uid", "==", user?.uid));
+    let ourArray: DocumentData[] = [];
+    let randomDoc: DocumentData = {};
+
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       ourArray.push(doc.data());
     });
-  }
-
-  getOurArray;
-
-  function fetch() {
-    // const q = query(feelGoods, where("uid", "==", user?.uid));
-    // let ourArray: DocumentData[] = [];
-    let randomDoc: DocumentData = {};
-
-    // const querySnapshot = await getDocs(q);
-    // querySnapshot.forEach((doc) => {
-    //   ourArray.push(doc.data());
-    // });
     randomDoc = ourArray[Math.floor(Math.random() * ourArray.length)];
     setText(randomDoc.content);
     setTitle(randomDoc.type);
