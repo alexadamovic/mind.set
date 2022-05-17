@@ -48,22 +48,27 @@ const MoodBoosterScreen = () => {
   }
 
   async function callOpenAi() {
-    const { Configuration, OpenAIApi } = require("openai");
-    const configuration = new Configuration({
-      apiKey: Constants.manifest?.extra?.openAiApiKey,
-    });
-    const openai = new OpenAIApi(configuration);
-    const response = await openai.createCompletion("text-davinci-002", {
-      prompt: `Give me a pep talk using the following statements about myself: ${text1} - ${text2} - ${text3}`,
-      temperature: 0.9,
-      max_tokens: 150,
-      top_p: 1,
-      frequency_penalty: 0.0,
-      presence_penalty: 0.6,
-    });
-    setRandomView(false);
-    setAiView(true);
-    setTextAi(response.data.choices[0].text);
+    if (randomView) {
+      const { Configuration, OpenAIApi } = require("openai");
+      const configuration = new Configuration({
+        apiKey: Constants.manifest?.extra?.openAiApiKey,
+      });
+      const openai = new OpenAIApi(configuration);
+      const response = await openai.createCompletion("text-davinci-002", {
+        prompt: `Give me a short pep talk using one or more of the following statements: ${text1} - ${text2} - ${text3}`,
+        temperature: 0.8,
+        max_tokens: 150,
+        top_p: 1,
+        frequency_penalty: 0.5,
+        presence_penalty: 0.5,
+      });
+      setRandomView(false);
+      setAiView(true);
+      setTextAi(response.data.choices[0].text);
+    } else {
+      setAiView(true);
+      setTextAi("Please fetch random first!");
+    }
   };
 
   return (
