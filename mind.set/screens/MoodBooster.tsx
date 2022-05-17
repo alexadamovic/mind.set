@@ -12,22 +12,39 @@ const MoodBoosterScreen = () => {
 
   const { user } = useAuthentication();
   const feelGoods = collection(db, "Feel Goods");
-  const [text, setText] = React.useState("What will you pull up today???");
-  const [title, setTitle] = React.useState("Type of Feel Good");
+  const [textAi, setTextAi] = React.useState("");
+  const [text1, setText1] = React.useState("");
+  const [text2, setText2] = React.useState("");
+  const [text3, setText3] = React.useState("");
+  const [title1, setTitle1] = React.useState("");
+  const [title2, setTitle2] = React.useState("");
+  const [title3, setTitle3] = React.useState("");
+  const [randomView, setRandomView] = React.useState(false);
+  const [aiView, setAiView] = React.useState(false);
 
 
   async function fetch() {
     const q = query(feelGoods, where("uid", "==", user?.uid));
     let ourArray: DocumentData[] = [];
-    let randomDoc: DocumentData = {};
+    let randomDoc1: DocumentData = {};
+    let randomDoc2: DocumentData = {};
+    let randomDoc3: DocumentData = {};
 
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       ourArray.push(doc.data());
     });
-    randomDoc = ourArray[Math.floor(Math.random() * ourArray.length)];
-    setText(randomDoc.content);
-    setTitle(randomDoc.type);
+    randomDoc1 = ourArray[Math.floor(Math.random() * ourArray.length)];
+    randomDoc2 = ourArray[Math.floor(Math.random() * ourArray.length)];
+    randomDoc3 = ourArray[Math.floor(Math.random() * ourArray.length)];
+    setRandomView(true);
+    setAiView(false);
+    setText1(randomDoc1.content);
+    setTitle1(randomDoc1.type);
+    setText2(randomDoc2.content);
+    setTitle2(randomDoc2.type);
+    setText3(randomDoc3.content);
+    setTitle3(randomDoc3.type);
   }
 
   async function callOpenAi() {
@@ -37,30 +54,55 @@ const MoodBoosterScreen = () => {
     });
     const openai = new OpenAIApi(configuration);
     const response = await openai.createCompletion("text-davinci-002", {
-      prompt: `Give me a pep talk using the following statements about myself: I graduated from Epicodus`,
+      prompt: `Give me a pep talk using the following statements about myself: ${text1} - ${text2} - ${text3}`,
       temperature: 0.9,
       max_tokens: 150,
       top_p: 1,
       frequency_penalty: 0.0,
       presence_penalty: 0.6,
     });
-    setText(response.data.choices[0].text);
-    setTitle("OPENAI");
+    setRandomView(false);
+    setAiView(true);
+    setTextAi(response.data.choices[0].text);
   };
-
 
   return (
     <View style={styles.container}>
       <Image source={require("../assets/feelgood.png")} />
 
-      <Card containerStyle={styles.card}>
-        <Card.Title style={styles.buttonText}>{title}</Card.Title>
-        <Card.Divider />
-        <Text>{text}</Text>
-      </Card>
-
       <Button containerStyle={styles.buttonContainer} titleStyle={styles.buttonText} buttonStyle={styles.button} title="Fetch Random" onPress={fetch}></Button>
       <Button containerStyle={styles.buttonContainer} titleStyle={styles.buttonText} buttonStyle={styles.button} title="OPENAI" onPress={callOpenAi}></Button>
+
+      {randomView ?
+        <View>
+          <Card containerStyle={styles.card}>
+            <Card.Title style={styles.buttonText}>{title1}</Card.Title>
+            <Card.Divider />
+            <Text>{text1}</Text>
+          </Card>
+          <Card containerStyle={styles.card}>
+            <Card.Title style={styles.buttonText}>{title2}</Card.Title>
+            <Card.Divider />
+            <Text>{text2}</Text>
+          </Card>
+          <Card containerStyle={styles.card}>
+            <Card.Title style={styles.buttonText}>{title3}</Card.Title>
+            <Card.Divider />
+            <Text>{text3}</Text>
+          </Card>
+        </View>
+        : null}
+
+      {aiView ?
+        <View>
+          <Card containerStyle={styles.card}>
+            <Card.Title style={styles.buttonText}>OPENAI</Card.Title>
+            <Card.Divider />
+            <Text>{textAi}</Text>
+          </Card>
+        </View>
+        : null}
+
     </View>
   );
 };
