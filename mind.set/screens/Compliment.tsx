@@ -35,7 +35,7 @@ const Compliment: React.FC<StackScreenProps<any>> = ({ navigation }) => {
         onChangeText={(text) => setValue({ ...value, content: text })}
         autoCompleteType={undefined}
       />
-      <Button title="Add New Encouragement" containerStyle={styles.buttonContainer} titleStyle={styles.buttonText} buttonStyle={styles.button} onPress={SendToFirebase}></Button>
+      <Button title="Add New Compliment" containerStyle={styles.buttonContainer} titleStyle={styles.buttonText} buttonStyle={styles.button} onPress={SendToFirebase}></Button>
     </View>
   );
 }
