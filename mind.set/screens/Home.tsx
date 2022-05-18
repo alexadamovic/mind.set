@@ -11,7 +11,7 @@ const HomeScreen: React.FC<StackScreenProps<any>> = ({ navigation }) => {
     <View style={styles.container}>
       <Image source={require("../assets/logo.png")} />
 
-      <Button title="Add A Mind.Set" containerStyle={styles.buttonContainer} titleStyle={styles.buttonText} buttonStyle={styles.button} onPress={() => navigation.navigate('choose mind.set')} />
+      <Button title="Add A Mind.Set" containerStyle={styles.buttonContainer} titleStyle={styles.buttonText} buttonStyle={styles.button} onPress={() => navigation.navigate('Choose Mind.Set')} />
       <Button title="Get A Mood Booster" containerStyle={styles.buttonContainer} titleStyle={styles.buttonText} buttonStyle={styles.button} onPress={() => navigation.navigate('Mood Booster')} />
       <Button title="Sign Out" containerStyle={styles.buttonContainer} titleStyle={styles.buttonText} buttonStyle={styles.button} onPress={() => signOut(auth)} />
     </View>

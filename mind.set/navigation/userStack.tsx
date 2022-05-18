@@ -19,7 +19,7 @@ export default function UserStack() {
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Mood Booster" component={MoodBoosterScreen} />
-        <Stack.Screen name="choose mind.set" component={ChooseMindSet} />
+        <Stack.Screen name="Choose Mind.Set" component={ChooseMindSet} />
         <Stack.Screen name="Memory" component={Memory} />
         <Stack.Screen name="Achievement" component={Achievement} />
         <Stack.Screen name="Compliment" component={Compliment} />
