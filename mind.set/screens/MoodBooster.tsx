@@ -56,9 +56,9 @@ const MoodBoosterScreen = () => {
       });
       const openai = new OpenAIApi(configuration);
       const response = await openai.createCompletion("text-davinci-002", {
-        prompt: `Give me a short pep talk using the following statements about myself: ${text1} - ${text2} - ${text3}`,
-        temperature: 0.8,
-        max_tokens: 150,
+        prompt: `Give me a pep talk using the following statements about myself: ${text1} - ${text2} - ${text3}. Be creative, and try to incorporate some humor.`,
+        temperature: 1.0,
+        max_tokens: 250,
         top_p: 1,
         frequency_penalty: 0.5,
         presence_penalty: 0.5,
@@ -102,9 +102,9 @@ const MoodBoosterScreen = () => {
       {aiView ?
         <View>
           <Card containerStyle={styles.card}>
-            <Card.Title style={styles.buttonText}>OPENAI</Card.Title>
+            <Card.Title><Text style={styles.buttonText}>OPENAI</Text></Card.Title>
             <Card.Divider />
-            <Text>{textAi}</Text>
+            <Text style={styles.buttonText}>{textAi}</Text>
           </Card>
         </View>
         : null}

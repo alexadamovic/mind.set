@@ -1,5 +1,7 @@
 # mind.set
 
+![image](/mind.set/assets/logo_screenshot.png) ![image](/mind.set/assets/screenshot2.png) ![image](/mind.set/assets/screenshot3.png)
+
 #### A React Native application to help boost your mood
 
 ## Description
