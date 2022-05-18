@@ -19,6 +19,7 @@ const MoodBoosterScreen = () => {
   const [title3, setTitle3] = React.useState("");
   const [randomView, setRandomView] = React.useState(false);
   const [aiView, setAiView] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
 
 
   async function fetch() {
@@ -47,6 +48,8 @@ const MoodBoosterScreen = () => {
 
   async function callOpenAi() {
     if (randomView) {
+      setRandomView(false);
+      setLoading(true);
       const { Configuration, OpenAIApi } = require("openai");
       const configuration = new Configuration({
         apiKey: Constants.manifest?.extra?.openAiApiKey,
@@ -60,7 +63,7 @@ const MoodBoosterScreen = () => {
         frequency_penalty: 0.5,
         presence_penalty: 0.5,
       });
-      setRandomView(false);
+      setLoading(false);
       setAiView(true);
       setTextAi(response.data.choices[0].text);
     } else {
@@ -103,6 +106,12 @@ const MoodBoosterScreen = () => {
             <Card.Divider />
             <Text>{textAi}</Text>
           </Card>
+        </View>
+        : null}
+
+      {loading ?
+        <View>
+          <Image source={require("../assets/loading.png")} />
         </View>
         : null}
 
