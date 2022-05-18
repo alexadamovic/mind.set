@@ -1,6 +1,6 @@
 # mind.set
 
-#### A React Native mobile application to help boost your mood 😊!
+#### A React Native mobile application to help boost your mood 😊
 
 #### By Alex Adamovic
 
@@ -30,6 +30,10 @@
 _mind.set is a platform where users are encouraged to get into a positive frame of mind by logging short entries that require the user to recall and track their own good memories and life events, list positive traits about themselves, and give themselves compliments and words of encouragement. Unlike a typical mental health tracking app, mind.set is all about giving the user encouragement throughout their day by letting them interact with their own self-generated positive content. Everything is personalized because YOU are the one writing content for yourself. Currently, the app can be used in one of two ways: A user will log on to create content when they are so inclined, or the user will log on to randomly retrieve a set of entries that they have previously written when they need a quick mood boost._
 
 _mind.set also serves as a showcase for the possibilities of OpenAI API integration, and how AI could be an effective tool in assisting mental health professionals in the future. At the click of a button, the user is able to make a call to the GPT-3 AI's most advanced engine, DaVinci-002, which takes the set of randomly pulled entries on screen and formulates a cohesvive "pep talk" to give to the user. Although the functionality is very basic, it serves as a demonstration of AI training and the ability to respond to a user on a personal level given proper data._
+
+### Component Tree Navigation Structure
+
+![image](/mind.set/assets/component_navigation.png)
 
 ### Research & Planning Log
 #### Friday, 04/29/2022
