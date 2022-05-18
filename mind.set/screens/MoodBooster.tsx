@@ -1,8 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import { Input, Card, Button } from 'react-native-elements';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { Card, Button } from 'react-native-elements';
 import { db } from '../config/firebase';
 import { collection, query, where, getDocs, DocumentData } from "firebase/firestore";
 import { useAuthentication } from '../utils/hooks/useAuthentication';
@@ -81,19 +79,19 @@ const MoodBoosterScreen = () => {
       {randomView ?
         <View>
           <Card containerStyle={styles.card}>
-            <Card.Title style={styles.buttonText}>{title1}</Card.Title>
+            <Card.Title><Text style={styles.buttonText}>{title1}</Text></Card.Title>
             <Card.Divider />
-            <Text>{text1}</Text>
+            <Text style={styles.buttonText}>{text1}</Text>
           </Card>
           <Card containerStyle={styles.card}>
-            <Card.Title style={styles.buttonText}>{title2}</Card.Title>
+            <Card.Title><Text style={styles.buttonText}>{title2}</Text></Card.Title>
             <Card.Divider />
-            <Text>{text2}</Text>
+            <Text style={styles.buttonText}>{text2}</Text>
           </Card>
           <Card containerStyle={styles.card}>
-            <Card.Title style={styles.buttonText}>{title3}</Card.Title>
+            <Card.Title><Text style={styles.buttonText}>{title3}</Text></Card.Title>
             <Card.Divider />
-            <Text>{text3}</Text>
+            <Text style={styles.buttonText}>{text3}</Text>
           </Card>
         </View>
         : null}
