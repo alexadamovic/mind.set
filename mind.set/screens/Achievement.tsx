@@ -1,6 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { StyleSheet, View } from 'react-native';
 import { Input, Button } from 'react-native-elements';
 import { useAuthentication } from '../utils/hooks/useAuthentication';
 import { db } from '../config/firebase';

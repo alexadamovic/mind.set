@@ -1,15 +1,12 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image } from 'react-native';
-import { useAuthentication } from '../utils/hooks/useAuthentication';
+import { StyleSheet, View, Image } from 'react-native';
 import { Button } from 'react-native-elements';
-import { browserPopupRedirectResolver, getAuth, signOut } from 'firebase/auth';
+import { getAuth, signOut } from 'firebase/auth';
 import { StackScreenProps } from '@react-navigation/stack';
 
 const auth = getAuth();
 
 const HomeScreen: React.FC<StackScreenProps<any>> = ({ navigation }) => {
-  const { user } = useAuthentication();
-
   return (
     <View style={styles.container}>
       <Image source={require("../assets/logo.png")} />

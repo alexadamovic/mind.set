@@ -74,7 +74,7 @@ const MoodBoosterScreen = () => {
       <Image source={require("../assets/feelgood.png")} />
 
       <Button containerStyle={styles.buttonContainer} titleStyle={styles.buttonText} buttonStyle={styles.button} title="Fetch Random" onPress={fetch}></Button>
-      <Button containerStyle={styles.buttonContainer} titleStyle={styles.buttonText} buttonStyle={styles.button} title="OPENAI" onPress={callOpenAi}></Button>
+      <Button containerStyle={styles.buttonContainer} titleStyle={styles.buttonText} buttonStyle={styles.button} title="Call OPENAI" onPress={callOpenAi}></Button>
 
       {randomView ?
         <View>
