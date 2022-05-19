@@ -37,18 +37,18 @@ _mind.set also serves as a showcase for the possibilities of OpenAI API integrat
 
 ## Setup/Installation Requirements
 
-### Expo CLI Installation
+### 1) Expo CLI Installation
 
 * _enter ```$ _npm install --global expo-cli``` to install Expo globally_
 * _[Expo Documentation](https://docs.expo.dev/)_
 
-### Project Installation
+### 2) Project Installation
 
 * _clone repository from https://github.com/alexadamovic/mind.set_
 * _navigate to the ```mind.set``` folder in the main project directory in your terminal/command line_
 * _enter ```$ npm install``` to install project dependencies_
 
-### Firebase & Firestore Setup
+### 3) Firebase & Firestore Setup
 
 * _sign up for a free account at [Firebase](https://firebase.google.com/)_
 * _navigate to your dashboard and click the icon to "Add project"_
@@ -86,12 +86,82 @@ const firebaseConfig = {
 };
 ```
 
-### OpenAI setup
+### 5) OpenAI setup
 
 * _sign up for a free account at [OpenAI](https://openai.com/api/)_
 * _on your personal homepage, open your account menu in the upper righthand corner and click on ```View API keys```_
 * _copy your current API key and add it to the text document that you stored your firebase configuration information_
+* _note that you only have a limited amount of free API calls (see website for more details)_
 
-### Creating Your .env File
+### 6) Creating Your .env File
 
-*
+* _navigate to ```mind.set``` folder in the root directory_
+* _create a ```.env``` file_
+* _enter the information from Firebase and OpenAI that you stored in the temporary text file in the following format:_
+
+```
+FIREBASE_API_KEY="YOUR-UNIQUE-CREDENTIALS"
+FIREBASE_AUTH_DOMAIN="YOUR-PROJECT-NAME.firebaseapp.com"
+FIREBASE_PROJECT_ID="YOUR-UNIQUE-PROJECT-NAME"
+FIREBASE_STORAGE_BUCKET="YOUR-UNIQUE-URL"
+FIREBASE_MESSAGING_SENDER_ID="YOUR-UNIQUE-CREDENTIALS"
+FIREBASE_APP_ID="YOUR-UNIQUE-APPID"
+OPENAI_API_KEY="YOUR-UNIQUE-CREDENTIALS"
+```
+* _delete your temporary text file (make sure not to push sensitive information to github)_
+* _you should now have access to Firebase Authorization, your Firestore Database, and the ability to make calls to OpenAI_
+
+## Running the Application with Expo
+
+* _navigate to ```mind.set``` folder in the root directory in your terminal or command line_
+* _run the command ```npm start``` or ```expo start```
+* _you will presented with the following options:_
+
+```
+▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+█ ▄▄▄▄▄ █   █▄ █▄▀█ ▄▄▄▄▄ █
+█ █   █ █ ▀▄ █▀▄ ▄█ █   █ █
+█ █▄▄▄█ █▀██▀▀ █▄██ █▄▄▄█ █
+█▄▄▄▄▄▄▄█▄▀▄█ █ █▄█▄▄▄▄▄▄▄█
+█  ▀▀▄▄▄▀█▀▀▄▀█▄ ███ ▀▄▄ ▄█
+█▄ █▄ █▄  █▀ ▄▄█  ▀ █▄  ▀██
+█▀ ▄██ ▄▄▄▀▄█▄▀▄▀▄▀▄▀▀▄ ▀██
+███▄█▄█▄▄  ▄█▀█▀▄▄▄█▄▀ ▀███
+█▄▄▄▄██▄█ █▄▄ █▄▄ ▄▄▄ ▀ ▄▄█
+█ ▄▄▄▄▄ █▀▄█ ██▀▀ █▄█ ▀▀███
+█ █   █ █▄█ ▀▀▀▄█▄▄ ▄▄▀ ▀▀█
+█ █▄▄▄█ █▀█▄ ███▄██▄▀█▀▀ ██
+█▄▄▄▄▄▄▄█▄█▄███▄████▄▄▄▄▄▄█
+
+› Metro waiting on exp://192.168.0.155:19000
+› Scan the QR code above with Expo Go (Android) or the Camera app (iOS)
+
+› Press a │ open Android
+› Press w │ open web
+
+› Press r │ reload app
+› Press m │ toggle menu
+› Press d │ show developer tools
+› shift+d │ toggle auto opening developer tools on startup (disabled)
+
+› Press ? │ show all commands
+```
+
+* _entering ```w``` will not require any further technologies and will launch the project in your browser_
+* _if you would like to launch the project using an Android emulator, explore [Android Studio](https://developer.android.com/studio)_
+* _if you would like to launch the project using your mobile device, explore [Expo Go](https://expo.dev/client)_
+
+## Known Bugs
+
+* _Users are able to pull duplicate entries from the database on "fetch random" (5/18/22)_
+* _The text response of the OpenAI API call does not always come back neatly formatted (5/18/22)_
+
+## License
+
+_MIT License_
+
+Copyright (c) _2022_ _Alex Adamovic_
+
+## Contact Information
+
+alexanderadamovic@gmail.com
