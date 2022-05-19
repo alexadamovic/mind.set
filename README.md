@@ -31,34 +31,67 @@ _mind.set is a platform where users are encouraged to get into a positive frame 
 
 _mind.set also serves as a showcase for the possibilities of OpenAI API integration, and how AI could be an effective tool in assisting mental health professionals in the future. At the click of a button, the user is able to make a call to the GPT-3 AI's most advanced engine, DaVinci-002, which takes the set of randomly pulled entries on screen and formulates a cohesvive "pep talk" to give to the user. Although the functionality is very basic, it serves as a demonstration of AI training and the ability to respond to a user on a personal level given proper data._
 
-### Component Tree Navigation Structure
+## Component Navigation Structure
 
 ![image](/mind.set/assets/component_navigation.png)
 
-### Research & Planning Log
-#### Friday, 04/29/2022
-* 8:00: work on capstone proposal
-* 10:00: research React Native
-    * [Official Documentation](https://reactnative.dev/docs/getting-started)
-* 11:45: finish getting through the basics, begin work on environment setup
-* 1:45: finish environment setup, begin workflow
-    * [Watch React Native Tutorial](https://www.youtube.com/watch?v=0-S5a0eXPoc)
-* 2:30: get Android Studio set up for Android emulation
-* 4:00: continue working through tutorial and add some trial elements
+## Setup/Installation Requirements
 
-#### Friday, 05/05/2022
-* 8:00: caffeinate, work out a plan for the day
-* 8:30: begin work on adding firebase with authentication
-    * [Integrating Firebase authentication into an Expo mobile app](https://blog.logrocket.com/integrating-firebase-authentication-expo-mobile-app/)
-* 5:00: ended up working on Firebase Authentication all day
+### Expo CLI Installation
 
-#### Friday, 05/13/2022
-* 8:00: do some research on React Native Elements
-    * [React Native Elements Documentation](https://reactnativeelements.com/docs)
-* 9:00: work on coding to get desired responses from Firestore database
-* 1:00: do research into incorporating OpenAI
-    * [Open AI Documentation](https://beta.openai.com/docs/introduction)
+* _enter ```$ _npm install --global expo-cli``` to install Expo globally_
+* _[Expo Documentation](https://docs.expo.dev/)_
 
-#### Tuesday, 05/17/2022
-* 8:30: read tutorial on useEffect hook
-    * [useEffect](https://blog.logrocket.com/guide-to-react-useeffect-hook/)
+### Project Installation
+
+* _clone repository from https://github.com/alexadamovic/mind.set_
+* _navigate to the ```mind.set``` folder in the main project directory in your terminal/command line_
+* _enter ```$ npm install``` to install project dependencies_
+
+### Firebase & Firestore Setup
+
+* _sign up for a free account at [Firebase](https://firebase.google.com/)_
+* _navigate to your dashboard and click the icon to "Add project"_
+* _follow the steps to create a new project (Google Analytics is optional and will not effect the project function)_
+* _further steps will be completed from your project page_
+
+#### Enable Firebase Authentication
+
+* _using the sidebar, click ```Authentication``` under the ```Build``` tab_
+* _once on the Authentication page, click the ```Sign-in Method``` navigation at the top_
+* _under Sign-in providers click ```Add new provider```_
+* _select Email/Password_
+
+#### Firestore Database
+
+* _using the sidebar, click ```Firestore Database``` under the ```Build``` tab_
+* _click on the ```Create database``` button_
+* _on the popup, make sure that "Start in test mode" is selected before clicking next (this will allow read/write privileges for 30 days)_
+* _click ```enable``` on the next popup_
+
+#### Add Firebase to Your Web App
+
+* _on the project overview page, click the button marked ```</>```_
+* _give the project a nickname (do not set up hosting)_
+* _copy and paste the following block of code provided by firebase that looks lke the code below into a blank text file for later use (note that I have replaced values with generic placeholders):_
+
+```
+const firebaseConfig = {
+  apiKey: "YOUR-UNIQUE-CREDENTIALS",
+  authDomain: "YOUR-PROJECT-NAME.firebaseapp.com",
+  projectId: "YOUR-UNIQUE-PROJECT-NAME",
+  storageBucket: "YOUR-UNIQUE-URL",
+  messagingSenderId: "YOUR-UNIQUE-CREDENTIALS",
+  appId: "YOUR-UNIQUE-APPID",
+};
+```
+
+### OpenAI setup
+
+* _sign up for a free account at [OpenAI](https://openai.com/api/)_
+* _on your personal homepage, open your account menu in the upper righthand corner and click on ```View API keys```_
+* _copy your current API key and add it to the text document that you stored your firebase configuration information_
+
+### Creating Your .env File
+
+*
