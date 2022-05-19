@@ -114,7 +114,7 @@ OPENAI_API_KEY="YOUR-UNIQUE-CREDENTIALS"
 ## Running the Application with Expo
 
 * _navigate to ```mind.set``` folder in the root directory in your terminal or command line_
-* _run the command ```npm start``` or ```expo start```
+* _run the command ```npm start``` or ```expo start```_
 * _you will presented with the following options:_
 
 ```
